@@ -1,8 +1,18 @@
+# Ensure Dart is detected correctly
 *.dart linguist-detectable=true
+
+# Ignore native and auto-generated files
 *.cpp linguist-detectable=false
 *.h linguist-detectable=false
 *.c linguist-detectable=false
 *.mm linguist-detectable=false
 *.m linguist-detectable=false
+CMakeLists.txt linguist-detectable=false
+*.cmake linguist-detectable=false
+
+# Ignore Flutter platform-specific folders
 android/** linguist-vendored
 ios/** linguist-vendored
+windows/** linguist-vendored
+macos/** linguist-vendored
+linux/** linguist-vendored
