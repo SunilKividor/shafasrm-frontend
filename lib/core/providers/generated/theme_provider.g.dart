@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'theme_provider.dart';
+part of '../theme_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
 String _$themeProviderNotifierHash() =>
-    r'68e6730a4170012ee8e119a7a09703a00e3a71c3';
+    r'38aaf15ba55d42aae8c429dcb70a693cc76f94a1';
 
 /// See also [ThemeProviderNotifier].
 @ProviderFor(ThemeProviderNotifier)

@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:shafasrm_app/core/providers/extensions/context_extensions.dart';
+import 'package:shafasrm_app/core/extensions/context_extensions.dart';
+import 'package:shafasrm_app/core/routes/router.dart';
 
-class Onboarding extends StatefulWidget {
-  const Onboarding({super.key});
+class OnboardingScreen extends StatelessWidget {
+  const OnboardingScreen({super.key});
 
-  @override
-  State<Onboarding> createState() => _OnboardingState();
-}
-
-class _OnboardingState extends State<Onboarding> {
   @override
   Widget build(BuildContext context) {
     final width = context.screenWidth;
@@ -106,15 +102,21 @@ class _OnboardingState extends State<Onboarding> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Container(
-                        alignment: Alignment.center,
-                        height: width * .15,
-                        width: width * .15,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color(0xff3B3B3D),
+                      InkWell(
+                        borderRadius : BorderRadius.circular(30),
+                        onTap: () {
+                          AuthRoute().pushReplacement(context);
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: width * .15,
+                          width: width * .15,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color(0xff3B3B3D),
+                          ),
+                          child: Icon(PhosphorIconsBold.caretRight),
                         ),
-                        child: Icon(PhosphorIconsBold.caretRight),
                       ),
                     ],
                   ),
