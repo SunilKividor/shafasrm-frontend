@@ -51,12 +51,15 @@ class OnboardingScreen extends StatelessWidget {
                   right: 1,
                   top: (height * .15) + ((height * .5) - (height * .2)) / 2,
                   child: Align(
-                    child: Text(
-                      "SHAFA",
-                      style: GoogleFonts.gorditas(
-                        color: Colors.white,
-                        fontSize: 42,
-                        fontWeight: FontWeight.bold,
+                    child: Hero(
+                      tag: "123",
+                      child: Text(
+                        "SHAFA",
+                        style: GoogleFonts.gorditas(
+                          color: Colors.white,
+                          fontSize: 42,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -105,7 +108,7 @@ class OnboardingScreen extends StatelessWidget {
                       InkWell(
                         borderRadius : BorderRadius.circular(30),
                         onTap: () {
-                          AuthRoute().pushReplacement(context);
+                          LoginSignUpScreenRoute().pushReplacement(context);
                         },
                         child: Container(
                           alignment: Alignment.center,

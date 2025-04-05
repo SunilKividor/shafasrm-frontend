@@ -12,11 +12,13 @@ import 'package:flutter/widgets.dart';
 class Assets {
   Assets._();
 
+  static const String email = 'assets/email.json';
+  static const String logoGif = 'assets/logo_gif.json';
   static const AssetGenImage picture1 = AssetGenImage('assets/picture1.jpg');
   static const AssetGenImage picture2 = AssetGenImage('assets/picture2.jpg');
 
   /// List of all assets
-  static List<AssetGenImage> get values => [picture1, picture2];
+  static List<dynamic> get values => [email, logoGif, picture1, picture2];
 }
 
 class AssetGenImage {

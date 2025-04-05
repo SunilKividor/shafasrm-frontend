@@ -6,7 +6,12 @@ part of '../router.dart';
 // GoRouterGenerator
 // **************************************************************************
 
-List<RouteBase> get $appRoutes => [$onboardingRoute, $authRoute];
+List<RouteBase> get $appRoutes => [
+  $onboardingRoute,
+  $loginSignUpScreenRoute,
+  $logInScreenRoute,
+  $signUpScreenRoute,
+];
 
 RouteBase get $onboardingRoute => GoRouteData.$route(
   path: '/onboarding',
@@ -30,13 +35,61 @@ extension $OnboardingRouteExtension on OnboardingRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $authRoute =>
-    GoRouteData.$route(path: '/auth', factory: $AuthRouteExtension._fromState);
+RouteBase get $loginSignUpScreenRoute => GoRouteData.$route(
+  path: '/login-signup',
 
-extension $AuthRouteExtension on AuthRoute {
-  static AuthRoute _fromState(GoRouterState state) => const AuthRoute();
+  factory: $LoginSignUpScreenRouteExtension._fromState,
+);
 
-  String get location => GoRouteData.$location('/auth');
+extension $LoginSignUpScreenRouteExtension on LoginSignUpScreenRoute {
+  static LoginSignUpScreenRoute _fromState(GoRouterState state) =>
+      const LoginSignUpScreenRoute();
+
+  String get location => GoRouteData.$location('/login-signup');
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $logInScreenRoute => GoRouteData.$route(
+  path: '/auth/login',
+
+  factory: $LogInScreenRouteExtension._fromState,
+);
+
+extension $LogInScreenRouteExtension on LogInScreenRoute {
+  static LogInScreenRoute _fromState(GoRouterState state) =>
+      const LogInScreenRoute();
+
+  String get location => GoRouteData.$location('/auth/login');
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $signUpScreenRoute => GoRouteData.$route(
+  path: '/auth/signup',
+
+  factory: $SignUpScreenRouteExtension._fromState,
+);
+
+extension $SignUpScreenRouteExtension on SignUpScreenRoute {
+  static SignUpScreenRoute _fromState(GoRouterState state) =>
+      const SignUpScreenRoute();
+
+  String get location => GoRouteData.$location('/auth/signup');
 
   void go(BuildContext context) => context.go(location);
 
@@ -52,7 +105,7 @@ extension $AuthRouteExtension on AuthRoute {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'2dcbb6e7303c75d45bf8441283bf15b1c5909670';
+String _$routerHash() => r'6f1f45c74e10a4acdc0cdff0873328aac6263c68';
 
 /// See also [router].
 @ProviderFor(router)

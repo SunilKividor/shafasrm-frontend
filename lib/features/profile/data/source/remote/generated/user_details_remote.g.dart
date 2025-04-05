@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../login_req.dart';
+part of '../user_details_remote.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,9 +8,9 @@ part of '../login_req.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _LoginRemote implements LoginRemote {
-  _LoginRemote(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'http://localhost:3000';
+class _AddUserDetailsRemote implements AddUserDetailsRemote {
+  _AddUserDetailsRemote(this._dio, {this.baseUrl, this.errorLogger}) {
+    baseUrl ??= 'http://13.60.194.172:3000';
   }
 
   final Dio _dio;
@@ -20,16 +20,16 @@ class _LoginRemote implements LoginRemote {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HttpResponse<Map<String, String>>> login(
-    LoginReqModel loginReqModel,
-    dynamic contentType,
+  Future<HttpResponse<void>> addUserDetails(
+    UserDetailsModel loginReqModel,
+    String contentType,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Content-Type': contentType};
     _headers.removeWhere((k, v) => v == null);
     final _data = loginReqModel;
-    final _options = _setStreamType<HttpResponse<Map<String, String>>>(
+    final _options = _setStreamType<HttpResponse<void>>(
       Options(
             method: 'POST',
             headers: _headers,
@@ -44,15 +44,8 @@ class _LoginRemote implements LoginRemote {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late Map<String, String> _value;
-    try {
-      _value = _result.data!.cast<String, String>();
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    final httpResponse = HttpResponse(_value, _result);
+    final _result = await _dio.fetch<void>(_options);
+    final httpResponse = HttpResponse(null, _result);
     return httpResponse;
   }
 
