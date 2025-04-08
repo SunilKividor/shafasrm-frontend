@@ -1,10 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shafasrm_app/core/providers/dio_provider.dart';
-import 'package:shafasrm_app/core/providers/secure_storage_provider.dart';
-import 'package:shafasrm_app/features/authentication/data/source/auth_source_remote.dart';
-import 'package:shafasrm_app/features/authentication/data/repository/auth_repo.dart';
-import 'package:shafasrm_app/features/authentication/models/login_req_model.dart';
-import 'package:shafasrm_app/features/authentication/models/signup_req_model.dart';
 import 'package:shafasrm_app/features/profile/data/repository/user_details_repo.dart';
 import 'package:shafasrm_app/features/profile/data/source/remote/user_details_remote.dart';
 import 'package:shafasrm_app/features/profile/models/user_details_model.dart';
@@ -24,7 +19,7 @@ UserDetailsRepo userDetailsRepo(UserDetailsRepoRef ref) {
 }
 
 @riverpod
-class UserDetails extends _$UserDetails{
+class UserDetails extends _$UserDetails {
   @override
   UserDetailsModel build() {
     return UserDetailsModel(

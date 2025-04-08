@@ -9,7 +9,7 @@ import 'package:shafasrm_app/features/authentication/models/login_req_model.dart
 import 'package:shafasrm_app/features/authentication/presentation/provider/auth_provider.dart';
 
 class LogInScreen extends ConsumerStatefulWidget {
-  LogInScreen({super.key});
+  const LogInScreen({super.key});
 
   @override
   ConsumerState<LogInScreen> createState() => _LogInScreenState();

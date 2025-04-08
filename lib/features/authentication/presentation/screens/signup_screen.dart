@@ -10,7 +10,7 @@ import 'package:shafasrm_app/features/authentication/models/signup_req_model.dar
 import 'package:shafasrm_app/features/authentication/presentation/provider/auth_provider.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
-  SignUpScreen({super.key});
+  const SignUpScreen({super.key});
 
   @override
   ConsumerState<SignUpScreen> createState() => _SignUpScreenState();
