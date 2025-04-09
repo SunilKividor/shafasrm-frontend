@@ -11,6 +11,8 @@ List<RouteBase> get $appRoutes => [
   $loginSignUpScreenRoute,
   $logInScreenRoute,
   $signUpScreenRoute,
+  $userDetailsScreenRoute,
+  $profileCreationLoadingScreenRoute,
 ];
 
 RouteBase get $onboardingRoute => GoRouteData.$route(
@@ -101,11 +103,56 @@ extension $SignUpScreenRouteExtension on SignUpScreenRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
+RouteBase get $userDetailsScreenRoute => GoRouteData.$route(
+  path: '/auth/user_details',
+
+  factory: $UserDetailsScreenRouteExtension._fromState,
+);
+
+extension $UserDetailsScreenRouteExtension on UserDetailsScreenRoute {
+  static UserDetailsScreenRoute _fromState(GoRouterState state) =>
+      const UserDetailsScreenRoute();
+
+  String get location => GoRouteData.$location('/auth/user_details');
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $profileCreationLoadingScreenRoute => GoRouteData.$route(
+  path: '/auth/user_details/loading',
+
+  factory: $ProfileCreationLoadingScreenRouteExtension._fromState,
+);
+
+extension $ProfileCreationLoadingScreenRouteExtension
+    on ProfileCreationLoadingScreenRoute {
+  static ProfileCreationLoadingScreenRoute _fromState(GoRouterState state) =>
+      const ProfileCreationLoadingScreenRoute();
+
+  String get location => GoRouteData.$location('/auth/user_details/loading');
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'6f1f45c74e10a4acdc0cdff0873328aac6263c68';
+String _$routerHash() => r'cdf33422d1ead8259913d433e22579a9e24bed46';
 
 /// See also [router].
 @ProviderFor(router)

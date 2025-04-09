@@ -29,7 +29,6 @@ class _LogInScreenState extends ConsumerState<LogInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final loginReqModel = LoginReqModel(username: 'test', password: 'test');
     final height = context.screenHeight;
     final width = context.screenWidth;
     return Scaffold(

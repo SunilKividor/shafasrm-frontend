@@ -70,7 +70,7 @@ final signUpRepoProvider = AutoDisposeProvider<SignUpRepo>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef SignUpRepoRef = AutoDisposeProviderRef<SignUpRepo>;
-String _$authHash() => r'02439ce183872e05d21278a8e9afbed96cfbb446';
+String _$authHash() => r'747fdb8e67ab8a6868619f17292f142dd6ec4c61';
 
 /// See also [Auth].
 @ProviderFor(Auth)

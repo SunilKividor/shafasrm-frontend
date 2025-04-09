@@ -1,4 +1,3 @@
-
 part of 'router.dart';
 
 @TypedGoRoute<LogInScreenRoute>(path: '/auth/login')
@@ -15,4 +14,24 @@ class SignUpScreenRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) => SignUpScreen();
+}
+
+@TypedGoRoute<UserDetailsScreenRoute>(path: '/auth/user_details')
+class UserDetailsScreenRoute extends GoRouteData {
+  const UserDetailsScreenRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      UserDetailsScreen();
+}
+
+@TypedGoRoute<ProfileCreationLoadingScreenRoute>(
+  path: '/auth/user_details/loading',
+)
+class ProfileCreationLoadingScreenRoute extends GoRouteData {
+  const ProfileCreationLoadingScreenRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      ProfileCreationLoadingScreen();
 }

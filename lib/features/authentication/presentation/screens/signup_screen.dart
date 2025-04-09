@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shafasrm_app/config/assets.gen.dart';
 import 'package:shafasrm_app/core/extensions/context_extensions.dart';
+import 'package:shafasrm_app/core/routes/router.dart';
 import 'package:shafasrm_app/features/authentication/models/login_req_model.dart';
 import 'package:shafasrm_app/features/authentication/models/signup_req_model.dart';
 import 'package:shafasrm_app/features/authentication/presentation/provider/auth_provider.dart';
@@ -24,10 +25,25 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   Future<void> signUp() async {
     final signUpReq = SignupReqModel(
       name: nameController.text,
+
       password: passwordController.text,
+
       email: emailController.text,
     );
-    await ref.read(authProvider.notifier).signup(signUpReq);
+
+    try {
+      final isAuthenticatd = await ref
+          .read(authProvider.notifier)
+          .signup(signUpReq);
+
+      if (isAuthenticatd) {
+        UserDetailsScreenRoute().pushReplacement(context);
+      } else {
+        print("AUTH ERROR || ROUTE ERROR");
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override

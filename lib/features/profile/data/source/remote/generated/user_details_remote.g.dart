@@ -38,7 +38,7 @@ class _AddUserDetailsRemote implements AddUserDetailsRemote {
           )
           .compose(
             _dio.options,
-            '/auth/login',
+            '/user/details/create',
             queryParameters: queryParameters,
             data: _data,
           )

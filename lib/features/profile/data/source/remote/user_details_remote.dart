@@ -8,7 +8,7 @@ part 'generated/user_details_remote.g.dart';
 abstract class AddUserDetailsRemote {
   factory AddUserDetailsRemote(Dio dio) = _AddUserDetailsRemote;
 
-  @POST("/auth/login")
+  @POST("/user/details/create")
   Future<HttpResponse<void>> addUserDetails(
     @Body() UserDetailsModel loginReqModel,
     @Header('Content-Type') String contentType,

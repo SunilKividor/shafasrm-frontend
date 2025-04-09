@@ -33,4 +33,19 @@ class UserDetails extends _$UserDetails {
       degree: null,
     );
   }
+
+  Future<bool> addUserDetails(UserDetailsModel userDetails) async {
+    final userDetailsRepo = ref.read(userDetailsRepoProvider);
+    final res = await userDetailsRepo.addUserDetails(userDetails);
+
+    return res.fold(
+      (e) {
+        print(e);
+        return false;
+      },
+      (data) {
+        return true;
+      },
+    );
+  }
 }

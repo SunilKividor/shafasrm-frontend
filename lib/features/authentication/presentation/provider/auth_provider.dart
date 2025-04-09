@@ -33,35 +33,47 @@ SignUpRepo signUpRepo(SignUpRepoRef ref) {
 }
 
 @riverpod
-class Auth extends _$Auth{
+class Auth extends _$Auth {
   @override
   void build() {}
 
-  Future<void> login(LoginReqModel loginReqModel) async {
+  Future<bool> login(LoginReqModel loginReqModel) async {
     final loginRepo = ref.read(loginRepoProvider);
     print("Inside login provider");
     final response = await loginRepo.login(loginReqModel);
 
-    response.fold(
-      (e) => print(e), 
+    return response.fold(
+      (e) {
+        print(e);
+        return false;
+      },
       (res) async {
         final secureStorage = ref.read(secureStorageServiceProvider);
         await secureStorage.write("access_token", res.accessToken);
         await secureStorage.write("refresh_token", res.refreshToken);
-    },);
+        return true;
+      },
+    );
   }
 
-  Future<void> signup(SignupReqModel signupReqModel) async {
+  Future<bool> signup(SignupReqModel signupReqModel) async {
     final signupRepo = ref.read(signUpRepoProvider);
     print("Inside signup provider");
     final response = await signupRepo.signup(signupReqModel);
 
-    response.fold(
-      (e) => print(e), 
+    return response.fold(
+      (e) {
+        print(e);
+        return false;
+      },
       (res) async {
         final secureStorage = ref.read(secureStorageServiceProvider);
         await secureStorage.write("access_token", res.accessToken);
         await secureStorage.write("refresh_token", res.refreshToken);
-    },);
+        final accessToken = await secureStorage.read("access_token");
+        print(accessToken);
+        return true;
+      },
+    );
   }
 }

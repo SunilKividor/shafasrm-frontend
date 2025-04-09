@@ -26,6 +26,8 @@ dependencies:
   fpdart: ^1.1.1
   flutter_secure_storage: ^9.2.4
   lottie: ^3.3.1
+  syncfusion_flutter_datepicker: ^29.1.37
+  intl: ^0.20.2
 
   cupertino_icons: ^1.0.8
 
