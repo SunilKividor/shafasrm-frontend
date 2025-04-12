@@ -29,8 +29,15 @@ class AppThemes {
                 onSurface: Colors.black,
                 onError: Colors.white,
               ),
-      
-      scaffoldBackgroundColor: isDark ? AppColors.scaffoldBackgroundDark : AppColors.scaffoldBackgroundLight,
+
+      scaffoldBackgroundColor:
+          isDark
+              ? AppColors.scaffoldBackgroundDark
+              : AppColors.scaffoldBackgroundLight,
+
+      bottomNavigationBarTheme: BottomNavigationBarThemeData().copyWith(
+        backgroundColor: Colors.transparent,
+      ),
 
       textTheme: TextTheme(
         displayLarge: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),

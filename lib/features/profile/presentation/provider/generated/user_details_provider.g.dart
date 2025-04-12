@@ -44,7 +44,7 @@ final userDetailsRepoProvider = AutoDisposeProvider<UserDetailsRepo>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef UserDetailsRepoRef = AutoDisposeProviderRef<UserDetailsRepo>;
-String _$userDetailsHash() => r'7020318b0fdf5ac1de417c7f0a350e81b9b356be';
+String _$userDetailsHash() => r'e1dd8a4d98abb396014868ce519fe4bd6a2f21af';
 
 /// See also [UserDetails].
 @ProviderFor(UserDetails)

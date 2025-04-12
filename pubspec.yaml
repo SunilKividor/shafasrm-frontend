@@ -28,6 +28,10 @@ dependencies:
   lottie: ^3.3.1
   syncfusion_flutter_datepicker: ^29.1.37
   intl: ^0.20.2
+  appinio_swiper: ^2.1.1
+  font_awesome_flutter: ^10.8.0
+  hugeicons: ^0.0.10
+  icons_plus: ^5.0.0
 
   cupertino_icons: ^1.0.8
 
@@ -38,6 +42,7 @@ dev_dependencies:
   build_runner: ^2.4.15
   go_router_builder: ^2.8.2
   freezed: ^3.0.4
+  flutter_gen_runner:
   json_serializable: ^6.9.4
   retrofit_generator: ^9.1.9
 

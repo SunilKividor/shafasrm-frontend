@@ -13,6 +13,7 @@ List<RouteBase> get $appRoutes => [
   $signUpScreenRoute,
   $userDetailsScreenRoute,
   $profileCreationLoadingScreenRoute,
+  $homeScreenRoute,
 ];
 
 RouteBase get $onboardingRoute => GoRouteData.$route(
@@ -137,6 +138,28 @@ extension $ProfileCreationLoadingScreenRouteExtension
       const ProfileCreationLoadingScreenRoute();
 
   String get location => GoRouteData.$location('/auth/user_details/loading');
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $homeScreenRoute => GoRouteData.$route(
+  path: '/home',
+
+  factory: $HomeScreenRouteExtension._fromState,
+);
+
+extension $HomeScreenRouteExtension on HomeScreenRoute {
+  static HomeScreenRoute _fromState(GoRouterState state) =>
+      const HomeScreenRoute();
+
+  String get location => GoRouteData.$location('/home');
 
   void go(BuildContext context) => context.go(location);
 

@@ -1,7 +1,8 @@
-
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 class AppColors {
-  static Color scaffoldBackgroundLight = Color(0xff3C3D37);
-  static Color scaffoldBackgroundDark = Color(0xff0d0c0b);
+  static Color scaffoldBackgroundLight = Colors.black;
+  static Color scaffoldBackgroundDark = Colors.black;
 }
