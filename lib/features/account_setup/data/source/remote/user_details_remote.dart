@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:shafasrm_app/features/profile/models/user_details_model.dart';
+import 'package:shafasrm_app/features/account_setup/models/user_details_model.dart';
 
 part 'generated/user_details_remote.g.dart';
 
@@ -8,7 +8,7 @@ part 'generated/user_details_remote.g.dart';
 abstract class AddUserDetailsRemote {
   factory AddUserDetailsRemote(Dio dio) = _AddUserDetailsRemote;
 
-  @POST("/user/details/create")
+  @POST("/user/details")
   Future<HttpResponse<void>> addUserDetails(
     @Body() UserDetailsModel loginReqModel,
     @Header('Content-Type') String contentType,

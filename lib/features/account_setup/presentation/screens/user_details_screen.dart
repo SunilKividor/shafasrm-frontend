@@ -7,7 +7,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:shafasrm_app/core/extensions/context_extensions.dart';
 import 'package:shafasrm_app/core/routes/router.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
-import 'package:shafasrm_app/features/profile/presentation/provider/user_details_page_provider.dart';
+import 'package:shafasrm_app/features/account_setup/presentation/provider/user_details_page_state.dart';
 
 class UserDetailsScreen extends ConsumerStatefulWidget {
   const UserDetailsScreen({super.key});
@@ -338,7 +338,7 @@ class _UserDetailsScreenState extends ConsumerState<UserDetailsScreen> {
                 userDetailsState.setReligion(religionController.text);
                 break;
               case 5:
-                ProfileCreationLoadingScreenRoute().pushReplacement(context);
+                UserDetailsLoadingScreenRoute().pushReplacement(context);
               default:
             }
             pageControllerProvider.goToNextPage();

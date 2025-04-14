@@ -25,13 +25,20 @@ class UserDetailsScreenRoute extends GoRouteData {
       UserDetailsScreen();
 }
 
-@TypedGoRoute<ProfileCreationLoadingScreenRoute>(
-  path: '/auth/user_details/loading',
-)
-class ProfileCreationLoadingScreenRoute extends GoRouteData {
-  const ProfileCreationLoadingScreenRoute();
+@TypedGoRoute<UserDetailsLoadingScreenRoute>(path: '/auth/user_details/loading')
+class UserDetailsLoadingScreenRoute extends GoRouteData {
+  const UserDetailsLoadingScreenRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-      ProfileCreationLoadingScreen();
+      UserDetailsLoadingScreen();
+}
+
+@TypedGoRoute<ProfilePhotoUploadScreenRoute>(path: '/auth/profile/upload')
+class ProfilePhotoUploadScreenRoute extends GoRouteData {
+  const ProfilePhotoUploadScreenRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      ProfilePhotoUpload();
 }

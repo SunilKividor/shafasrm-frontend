@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:shafasrm_app/features/profile/models/user_details_model.dart';
+import 'package:shafasrm_app/features/account_setup/models/user_details_model.dart';
 
-part 'generated/user_details_page_provider.g.dart';
+part 'generated/user_details_page_state.g.dart';
 
 @Riverpod(keepAlive: true)
 class UserDetailsCurrentPage extends _$UserDetailsCurrentPage {

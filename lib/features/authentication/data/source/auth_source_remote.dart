@@ -6,10 +6,10 @@ import 'package:shafasrm_app/features/authentication/models/signup_req_model.dar
 
 part 'generated/auth_source_remote.g.dart';
 
-@RestApi(baseUrl: "http://13.60.194.172:3000")
+@RestApi(baseUrl: "http://13.60.194.172:3000/api/v1")
 abstract class LoginRemote {
   factory LoginRemote(Dio dio) = _LoginRemote;
-  
+
   @POST("/auth/login")
   Future<HttpResponse<AuthResModel>> login(
     @Body() LoginReqModel loginReqModel,
@@ -20,7 +20,7 @@ abstract class LoginRemote {
 @RestApi(baseUrl: "http://13.60.194.172:3000")
 abstract class SignUpRemote {
   factory SignUpRemote(Dio dio) = _SignUpRemote;
-  
+
   @POST("/auth/register")
   Future<HttpResponse<AuthResModel>> signup(
     @Body() SignupReqModel loginReqModel,

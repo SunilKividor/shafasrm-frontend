@@ -12,7 +12,8 @@ List<RouteBase> get $appRoutes => [
   $logInScreenRoute,
   $signUpScreenRoute,
   $userDetailsScreenRoute,
-  $profileCreationLoadingScreenRoute,
+  $userDetailsLoadingScreenRoute,
+  $profilePhotoUploadScreenRoute,
   $homeScreenRoute,
 ];
 
@@ -126,18 +127,41 @@ extension $UserDetailsScreenRouteExtension on UserDetailsScreenRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $profileCreationLoadingScreenRoute => GoRouteData.$route(
+RouteBase get $userDetailsLoadingScreenRoute => GoRouteData.$route(
   path: '/auth/user_details/loading',
 
-  factory: $ProfileCreationLoadingScreenRouteExtension._fromState,
+  factory: $UserDetailsLoadingScreenRouteExtension._fromState,
 );
 
-extension $ProfileCreationLoadingScreenRouteExtension
-    on ProfileCreationLoadingScreenRoute {
-  static ProfileCreationLoadingScreenRoute _fromState(GoRouterState state) =>
-      const ProfileCreationLoadingScreenRoute();
+extension $UserDetailsLoadingScreenRouteExtension
+    on UserDetailsLoadingScreenRoute {
+  static UserDetailsLoadingScreenRoute _fromState(GoRouterState state) =>
+      const UserDetailsLoadingScreenRoute();
 
   String get location => GoRouteData.$location('/auth/user_details/loading');
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $profilePhotoUploadScreenRoute => GoRouteData.$route(
+  path: '/auth/profile/upload',
+
+  factory: $ProfilePhotoUploadScreenRouteExtension._fromState,
+);
+
+extension $ProfilePhotoUploadScreenRouteExtension
+    on ProfilePhotoUploadScreenRoute {
+  static ProfilePhotoUploadScreenRoute _fromState(GoRouterState state) =>
+      const ProfilePhotoUploadScreenRoute();
+
+  String get location => GoRouteData.$location('/auth/profile/upload');
 
   void go(BuildContext context) => context.go(location);
 
@@ -175,7 +199,7 @@ extension $HomeScreenRouteExtension on HomeScreenRoute {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'cdf33422d1ead8259913d433e22579a9e24bed46';
+String _$routerHash() => r'64d7e608688c3d15d45fb533fed6121a162f1f2f';
 
 /// See also [router].
 @ProviderFor(router)
