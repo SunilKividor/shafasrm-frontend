@@ -199,7 +199,7 @@ extension $HomeScreenRouteExtension on HomeScreenRoute {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'64d7e608688c3d15d45fb533fed6121a162f1f2f';
+String _$routerHash() => r'88a3a215d06369a0b33fd1a43d1495a5391b0670';
 
 /// See also [router].
 @ProviderFor(router)

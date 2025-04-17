@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../user_details_remote.dart';
+part of '../photos_remote.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of '../user_details_remote.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _AddUserDetailsRemote implements AddUserDetailsRemote {
-  _AddUserDetailsRemote(this._dio, {this.baseUrl, this.errorLogger});
+class _PhotosRemote implements PhotosRemote {
+  _PhotosRemote(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
@@ -18,25 +18,49 @@ class _AddUserDetailsRemote implements AddUserDetailsRemote {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HttpResponse<void>> addUserDetails(
-    UserDetailsModel loginReqModel,
-    String contentType,
+  Future<HttpResponse<PhotosPresignedUrlResModel>> getPreSignedUrl(
+    PhotosQueryParam queryParam,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Content-Type': contentType};
-    _headers.removeWhere((k, v) => v == null);
-    final _data = loginReqModel;
-    final _options = _setStreamType<HttpResponse<void>>(
-      Options(
-            method: 'POST',
-            headers: _headers,
-            extra: _extra,
-            contentType: contentType,
-          )
+    queryParameters.addAll(queryParam.toJson());
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<HttpResponse<PhotosPresignedUrlResModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/v1/users/details',
+            '/v1/users/photos/pre-signed-url',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late PhotosPresignedUrlResModel _value;
+    try {
+      _value = PhotosPresignedUrlResModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    final httpResponse = HttpResponse(_value, _result);
+    return httpResponse;
+  }
+
+  @override
+  Future<HttpResponse<void>> storePhotoKeyRemote(
+    PhotoKeyStoreReqModel photoKeyStoreReq,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = photoKeyStoreReq;
+    final _options = _setStreamType<HttpResponse<void>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/v1/users/photos',
             queryParameters: queryParameters,
             data: _data,
           )

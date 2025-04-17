@@ -6,7 +6,7 @@ part of '../dio_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dioInitializerHash() => r'274fe467376802250c4de9458cfcde17ce24754c';
+String _$dioInitializerHash() => r'3972045463fefdb8e20909944e261ab8cf047672';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -165,7 +165,7 @@ final accessTokenInterceptorProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef AccessTokenInterceptorRef = ProviderRef<AccessTokenInterceptor>;
-String _$baseDioServiceHash() => r'e21f31988fbd38d5933a0db7328faa0869e5517a';
+String _$baseDioServiceHash() => r'f50bed2b1f35052918b9ef8b4c50b84757b0d6c8';
 
 /// See also [baseDioService].
 @ProviderFor(baseDioService)
@@ -183,5 +183,23 @@ final baseDioServiceProvider = Provider<Dio>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef BaseDioServiceRef = ProviderRef<Dio>;
+String _$defaultDioServiceHash() => r'91ccd289f3f7c635910643b43ebee600ecb94b94';
+
+/// See also [defaultDioService].
+@ProviderFor(defaultDioService)
+final defaultDioServiceProvider = Provider<Dio>.internal(
+  defaultDioService,
+  name: r'defaultDioServiceProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$defaultDioServiceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef DefaultDioServiceRef = ProviderRef<Dio>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

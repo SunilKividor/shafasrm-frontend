@@ -33,6 +33,7 @@ dependencies:
   hugeicons: ^0.0.10
   icons_plus: ^5.0.0
   image_picker: ^1.1.2
+  envied: ^1.1.1
 
   cupertino_icons: ^1.0.8
 
@@ -46,6 +47,7 @@ dev_dependencies:
   flutter_gen_runner:
   json_serializable: ^6.9.4
   retrofit_generator: ^9.1.9
+  envied_generator: ^1.1.1
 
   flutter_lints: ^5.0.0
 

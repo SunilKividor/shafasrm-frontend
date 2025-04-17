@@ -9,9 +9,7 @@ part of '../auth_source_remote.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
 class _LoginRemote implements LoginRemote {
-  _LoginRemote(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'http://13.60.194.172:3000';
-  }
+  _LoginRemote(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
@@ -20,25 +18,16 @@ class _LoginRemote implements LoginRemote {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HttpResponse<AuthResModel>> login(
-    LoginReqModel loginReqModel,
-    String contentType,
-  ) async {
+  Future<HttpResponse<AuthResModel>> login(LoginReqModel loginReqModel) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Content-Type': contentType};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = loginReqModel;
     final _options = _setStreamType<HttpResponse<AuthResModel>>(
-      Options(
-            method: 'POST',
-            headers: _headers,
-            extra: _extra,
-            contentType: contentType,
-          )
+      Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/auth/login',
+            '/v1/auth/login',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -87,9 +76,7 @@ class _LoginRemote implements LoginRemote {
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
 class _SignUpRemote implements SignUpRemote {
-  _SignUpRemote(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'http://13.60.194.172:3000';
-  }
+  _SignUpRemote(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
@@ -100,23 +87,16 @@ class _SignUpRemote implements SignUpRemote {
   @override
   Future<HttpResponse<AuthResModel>> signup(
     SignupReqModel loginReqModel,
-    String contentType,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Content-Type': contentType};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = loginReqModel;
     final _options = _setStreamType<HttpResponse<AuthResModel>>(
-      Options(
-            method: 'POST',
-            headers: _headers,
-            extra: _extra,
-            contentType: contentType,
-          )
+      Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/auth/register',
+            '/v1/auth/register',
             queryParameters: queryParameters,
             data: _data,
           )

@@ -7,9 +7,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shafasrm_app/config/theme/colors.dart';
 import 'package:shafasrm_app/core/extensions/context_extensions.dart';
+import 'package:shafasrm_app/core/routes/router.dart';
 import 'package:shafasrm_app/features/account_setup/presentation/provider/profile_provider.dart';
 import 'package:shafasrm_app/features/account_setup/presentation/provider/user_details_page_state.dart';
 import 'package:shafasrm_app/features/account_setup/presentation/widgets/animated_profile_overlay.dart';
+import 'package:shafasrm_app/features/common/presentation/provider/photos_provider.dart';
 
 class ProfilePhotoUpload extends ConsumerStatefulWidget {
   ProfilePhotoUpload({super.key});
@@ -30,11 +32,15 @@ class _ProfilePhotoUploadState extends ConsumerState<ProfilePhotoUpload> {
     try {
       final image = await picker.pickImage(source: ImageSource.gallery);
       if (image != null) {
-        ref.read(profileUploadProvider.notifier).setUploadProfile(image);
+        ref.read(profileUploadProvider.notifier).setProfile(image);
+        ref
+            .read(profileUploadStatusProvider.notifier)
+            .setUploadStatus(UploadStatus.uploaded);
+        return;
       }
       ref
           .read(profileUploadStatusProvider.notifier)
-          .setUploadStatus(UploadStatus.uploaded);
+          .setUploadStatus(UploadStatus.failed);
     } catch (e) {
       print(e);
       ref
@@ -43,10 +49,19 @@ class _ProfilePhotoUploadState extends ConsumerState<ProfilePhotoUpload> {
     }
   }
 
+  Future<void> uploadPhoto() async {
+    final isSuccess =
+        await ref.read(profileUploadProvider.notifier).uploadPhoto();
+    if (isSuccess) {
+      HomeScreenRoute().pushReplacement(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final height = context.screenHeight;
     return Scaffold(
+      backgroundColor: AppColors.warmWhite,
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(16),
@@ -101,7 +116,6 @@ class _ProfilePhotoUploadState extends ConsumerState<ProfilePhotoUpload> {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              // user.image(fit: BoxFit.cover),
               image?.path != null
                   ? Image.file(File(image!.path), fit: BoxFit.cover)
                   : SizedBox(),
@@ -143,7 +157,7 @@ class _ProfilePhotoUploadState extends ConsumerState<ProfilePhotoUpload> {
                     uploadStatus != UploadStatus.uploading &&
                             uploadStatus != UploadStatus.uploaded
                         ? pickImage
-                        : () {},
+                        : uploadPhoto,
                 child: _getStatusWidgets(uploadStatus),
               ),
             ),

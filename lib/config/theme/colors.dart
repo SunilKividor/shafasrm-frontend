@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static Color scaffoldBackgroundLight = cleanIvory;
-  static Color scaffoldBackgroundDark = cleanIvory;
+  static Color scaffoldBackgroundLight = slateGrey;
+  static Color scaffoldBackgroundDark = slateGrey;
 
   static Color peachCoral = Color(0XFFFF9999);
   static Color mintGreen = Color(0XFFA8E6CF);
