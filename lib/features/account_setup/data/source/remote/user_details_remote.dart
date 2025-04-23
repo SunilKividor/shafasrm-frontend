@@ -11,6 +11,5 @@ abstract class AddUserDetailsRemote {
   @POST("/v1/users/details")
   Future<HttpResponse<void>> addUserDetails(
     @Body() UserDetailsModel loginReqModel,
-    @Header('Content-Type') String contentType,
   );
 }

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shafasrm_app/config/assets.gen.dart';
 import 'package:shafasrm_app/core/extensions/context_extensions.dart';
+import 'package:shafasrm_app/core/routes/router.dart';
 import 'package:shafasrm_app/features/authentication/models/login_req_model.dart';
 import 'package:shafasrm_app/features/authentication/presentation/provider/auth_provider.dart';
 
@@ -21,10 +22,15 @@ class _LogInScreenState extends ConsumerState<LogInScreen> {
 
   Future<void> login() async {
     final loginReqModel = LoginReqModel(
-      username: usernameController.text,
+      email: usernameController.text,
       password: passwordController.text,
     );
-    await ref.read(authProvider.notifier).login(loginReqModel);
+    final isSuccess = await ref
+        .read(authProvider.notifier)
+        .login(loginReqModel);
+    if (isSuccess) {
+      HomeScreenRoute().pushReplacement(context);
+    }
   }
 
   @override

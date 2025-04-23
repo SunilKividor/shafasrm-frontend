@@ -13,11 +13,7 @@ class UserDetailsRepo with BaseApiRepository {
     UserDetailsModel userDetails,
   ) async {
     final response = getApiResponse<void>(
-      request:
-          () => addUserDetailsRemote.addUserDetails(
-            userDetails,
-            'application/json',
-          ),
+      request: () => addUserDetailsRemote.addUserDetails(userDetails),
     );
     return response;
   }

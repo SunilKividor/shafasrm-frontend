@@ -9,12 +9,14 @@ import 'package:shafasrm_app/features/account_setup/presentation/screens/profile
 import 'package:shafasrm_app/features/account_setup/presentation/screens/user_details_screen.dart';
 import 'package:shafasrm_app/features/onboarding/login_signup_screen.dart';
 import 'package:shafasrm_app/features/onboarding/onboarding_screen.dart';
+import 'package:shafasrm_app/features/user_profile/presentation/screens/profile_form_screen.dart';
 
 part 'generated/router.g.dart';
 
 part 'onboarding_route.dart';
 part 'auth_route.dart';
 part 'home_route.dart';
+part 'user_profile_route.dart';
 
 @Riverpod(keepAlive: true)
 GoRouter router(RouterRef ref) {

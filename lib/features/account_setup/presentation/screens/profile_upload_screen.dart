@@ -53,7 +53,8 @@ class _ProfilePhotoUploadState extends ConsumerState<ProfilePhotoUpload> {
     final isSuccess =
         await ref.read(profileUploadProvider.notifier).uploadPhoto();
     if (isSuccess) {
-      HomeScreenRoute().pushReplacement(context);
+      // HomeScreenRoute().pushReplacement(context);
+      ProfileFormScreenRoute().pushReplacement(context);
     }
   }
 

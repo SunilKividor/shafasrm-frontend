@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../user_details_remote.dart';
+part of '../profile_form_remote.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of '../user_details_remote.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _AddUserDetailsRemote implements AddUserDetailsRemote {
-  _AddUserDetailsRemote(this._dio, {this.baseUrl, this.errorLogger});
+class _ProfileFormRemote implements ProfileFormRemote {
+  _ProfileFormRemote(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
@@ -18,8 +18,8 @@ class _AddUserDetailsRemote implements AddUserDetailsRemote {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HttpResponse<void>> addUserDetails(
-    UserDetailsModel loginReqModel,
+  Future<HttpResponse<void>> createUserProfile(
+    UserProfileFormModel loginReqModel,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -29,7 +29,7 @@ class _AddUserDetailsRemote implements AddUserDetailsRemote {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/v1/users/details',
+            '/v1/users/profile',
             queryParameters: queryParameters,
             data: _data,
           )

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LoginReqModel {
 
- String? get username; String? get password;
+ String? get email; String? get password;
 /// Create a copy of LoginReqModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $LoginReqModelCopyWith<LoginReqModel> get copyWith => _$LoginReqModelCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginReqModel&&(identical(other.username, username) || other.username == username)&&(identical(other.password, password) || other.password == password));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginReqModel&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,username,password);
+int get hashCode => Object.hash(runtimeType,email,password);
 
 @override
 String toString() {
-  return 'LoginReqModel(username: $username, password: $password)';
+  return 'LoginReqModel(email: $email, password: $password)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $LoginReqModelCopyWith<$Res>  {
   factory $LoginReqModelCopyWith(LoginReqModel value, $Res Function(LoginReqModel) _then) = _$LoginReqModelCopyWithImpl;
 @useResult
 $Res call({
- String? username, String? password
+ String? email, String? password
 });
 
 
@@ -66,9 +66,9 @@ class _$LoginReqModelCopyWithImpl<$Res>
 
 /// Create a copy of LoginReqModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? username = freezed,Object? password = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? email = freezed,Object? password = freezed,}) {
   return _then(_self.copyWith(
-username: freezed == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String?,password: freezed == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -81,10 +81,10 @@ as String?,
 @JsonSerializable()
 
 class _LoginReqModel implements LoginReqModel {
-   _LoginReqModel({required this.username, required this.password});
+   _LoginReqModel({required this.email, required this.password});
   factory _LoginReqModel.fromJson(Map<String, dynamic> json) => _$LoginReqModelFromJson(json);
 
-@override final  String? username;
+@override final  String? email;
 @override final  String? password;
 
 /// Create a copy of LoginReqModel
@@ -100,16 +100,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginReqModel&&(identical(other.username, username) || other.username == username)&&(identical(other.password, password) || other.password == password));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginReqModel&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,username,password);
+int get hashCode => Object.hash(runtimeType,email,password);
 
 @override
 String toString() {
-  return 'LoginReqModel(username: $username, password: $password)';
+  return 'LoginReqModel(email: $email, password: $password)';
 }
 
 
@@ -120,7 +120,7 @@ abstract mixin class _$LoginReqModelCopyWith<$Res> implements $LoginReqModelCopy
   factory _$LoginReqModelCopyWith(_LoginReqModel value, $Res Function(_LoginReqModel) _then) = __$LoginReqModelCopyWithImpl;
 @override @useResult
 $Res call({
- String? username, String? password
+ String? email, String? password
 });
 
 
@@ -137,9 +137,9 @@ class __$LoginReqModelCopyWithImpl<$Res>
 
 /// Create a copy of LoginReqModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? username = freezed,Object? password = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? email = freezed,Object? password = freezed,}) {
   return _then(_LoginReqModel(
-username: freezed == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
+email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String?,password: freezed == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
 as String?,
   ));

@@ -106,7 +106,7 @@ class OnboardingScreen extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        borderRadius : BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(30),
                         onTap: () {
                           LoginSignUpScreenRoute().pushReplacement(context);
                         },

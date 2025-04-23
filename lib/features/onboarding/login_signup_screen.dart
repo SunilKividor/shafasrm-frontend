@@ -42,7 +42,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
 
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16),
-                height: height *.4,
+                height: height * .4,
                 color: Colors.black,
               ),
 
@@ -110,7 +110,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                     ),
                   ),
 
-                  Gap(height *.05),
+                  Gap(height * .05),
                 ],
               ),
             ],

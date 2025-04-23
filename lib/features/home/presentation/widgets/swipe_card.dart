@@ -1,14 +1,17 @@
 import 'package:appinio_swiper/appinio_swiper.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shafasrm_app/config/assets.gen.dart';
 import 'package:shafasrm_app/core/extensions/context_extensions.dart';
+import 'package:shafasrm_app/features/home/models/swipe_feed_model.dart';
 
 class SwipeCard extends StatelessWidget {
-  SwipeCard({super.key, required this.swipeCardController});
+  SwipeCard({super.key, required this.swipeCardController, required this.feed});
 
   final AppinioSwiperController swipeCardController;
+  final List<SwipeFeedModel> feed;
 
   final users = [
     // Assets.picture1,
@@ -49,7 +52,7 @@ class SwipeCard extends StatelessWidget {
         backgroundCardScale: 0,
         cardCount: 20,
         cardBuilder: (BuildContext context, int index) {
-          final user = users[index];
+          final user = feed[index];
 
           return Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
@@ -57,7 +60,14 @@ class SwipeCard extends StatelessWidget {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                user.image(fit: BoxFit.cover),
+                CachedNetworkImage(
+                  fit: BoxFit.cover,
+                  imageUrl:
+                      user.photoUrl ??
+                      'https://imgs.search.brave.com/-f7UxNLdjDt8Rhlb3F5T8ouIS4KdaFoPdMpygoIEXac/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/LmZsdWlkdWkuY29t/L2Fzc2V0cy9pbWFn/ZXMvcG9zdHMvaW1h/Z2VlZGl0XzFfOTI3/MzM3MjcxMy5wbmc',
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
                 Positioned.fill(
                   child: Container(
                     decoration: BoxDecoration(
@@ -86,7 +96,7 @@ class SwipeCard extends StatelessWidget {
                           SizedBox(
                             width: (width * .78) / 1.6,
                             child: Text(
-                              "Sunil Kumar",
+                              user.name ?? '_',
                               style: GoogleFonts.alike(
                                 color: Color(0xffDBFF00),
                                 fontWeight: FontWeight.bold,
@@ -127,7 +137,7 @@ class SwipeCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 4),
                         child: Text(
-                          "DSBS,Hyderabad",
+                          "${user.department},${user.location}",
                           style: GoogleFonts.alike(
                             color: Color(0xffDBFF00),
                             fontWeight: FontWeight.bold,

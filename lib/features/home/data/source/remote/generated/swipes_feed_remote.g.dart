@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../user_details_remote.dart';
+part of '../swipes_feed_remote.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of '../user_details_remote.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _AddUserDetailsRemote implements AddUserDetailsRemote {
-  _AddUserDetailsRemote(this._dio, {this.baseUrl, this.errorLogger});
+class _SwipeFeedRemote implements SwipeFeedRemote {
+  _SwipeFeedRemote(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
@@ -18,25 +18,36 @@ class _AddUserDetailsRemote implements AddUserDetailsRemote {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HttpResponse<void>> addUserDetails(
-    UserDetailsModel loginReqModel,
-  ) async {
+  Future<HttpResponse<List<SwipeFeedModel>>> getFeed() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = loginReqModel;
-    final _options = _setStreamType<HttpResponse<void>>(
-      Options(method: 'POST', headers: _headers, extra: _extra)
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<HttpResponse<List<SwipeFeedModel>>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/v1/users/details',
+            '/v1/users/swipes/feed',
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<void>(_options);
-    final httpResponse = HttpResponse(null, _result);
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<SwipeFeedModel> _value;
+    try {
+      _value =
+          _result.data!
+              .map(
+                (dynamic i) =>
+                    SwipeFeedModel.fromJson(i as Map<String, dynamic>),
+              )
+              .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    final httpResponse = HttpResponse(_value, _result);
     return httpResponse;
   }
 
